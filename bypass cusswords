@@ -471,6 +471,8 @@ function execute()
 	local Bypasses = {
 		
 		["vape"] = "va{{aieixzvzx:pe}}",
+		["novoline"] = "novo{{aieixzvzx:line}}",
+
 		["ass"] = "as{{aieixzvzx:s}}",
 		["asshole"] = "as{{aieixzvzx:shole}}",
 		["deadass"] = "dead as{{aieixzvzx:s}}",
