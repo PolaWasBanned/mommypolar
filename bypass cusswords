@@ -494,7 +494,7 @@ function execute()
 
 		--Hack  bypasses
 		["vape"] = "va{{aieixzvzx:pe}}",
-		["novoline"] = "novo{{aieixzvzx:li}}ne",
+		["novoline"] = "novoli{{aieixzvzx:ne}}",
 		["v3rm"] = "v3{{aieixzvzx:rm}}",
 		["v3rmillion"] = "v3{{aieixzvzx:rmillion}}",  
 		["hack"] = "ha{{aieixzvzx:ck}}",
