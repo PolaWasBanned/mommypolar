@@ -550,6 +550,7 @@ function execute()
 		["rapes"] = "ra{{aieixzvzx:pes}}",  
 		["raping"] = "rap{{aieixzvzx:ing}}",  
 		["raper"] = "ra{{aieixzvzx:per}}",  
+		["rapist"] = "rap{{aieixzvzx:ist}}",
 		["v3rm"] = "v3{{aieixzvzx:rm}}",
 		["v3rmillion"] = "v3{{aieixzvzx:rmillion}}",  
 		["hack"] = "ha{{aieixzvzx:ck}}",
@@ -566,8 +567,7 @@ function execute()
 		["thots"] = "th{{aieixzvzx:ots}}", --NEW
 		["thotting"] = "th{{aieixzvzx:otting}}", --NEW
 		["thotting"] = "th{{aieixzvzx:otting}}", --NEW
-		["rapist"] = "rap{{aieixzvzx:ist}}",
-
+		
 		["condom"] = "con{{aieixzvzx:dom}}",
 		["condoms"] = "con{{aieixzvzx:doms}}",  
 		["thot"] = "th{{aieixzvzx:ot}}",
@@ -652,6 +652,7 @@ function execute()
 		["wtf"] = "wt{{aieixzvzx:f}}",
 		["gtfo"] = "gt{{aieixzvzx:fo}}",
 		["kys"] = "k{{aieixzvzx:ys}}",
+		["kkk"] = "kk{{aieixzvzx:k}}",
 		["omfg"] = "omf{{aieixzvzx:g}}",
 		["stfu"] = "st{{aieixzvzx:fu}}",
 		["ily"] = "il{{aieixzvzx:y}}",
