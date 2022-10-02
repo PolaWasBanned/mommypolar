@@ -22,7 +22,7 @@ local filteredString = Chat:FilterStringForBroadcast(message, playerFrom)
 
 
 local queueonteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
-queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/bypass%20cusswords?token=GHSAT0AAAA'))()")
+queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/bypass%20cusswords'))()")
 
 function execute()
 
@@ -469,7 +469,8 @@ function execute()
 	end
 
 	local Bypasses = {
-
+		
+		["vape"] = "va{{aieixzvzx:pe}}",
 		["ass"] = "as{{aieixzvzx:s}}",
 		["asshole"] = "as{{aieixzvzx:shole}}",
 		["deadass"] = "dead as{{aieixzvzx:s}}",
@@ -749,7 +750,7 @@ function execute()
 	if not LOADED then
 		NotificationHolder:message {
 			Title = "<font color='rgb(130, 220, 120)'>Credits</font>",
-			Description = "FIRSTLY DISCOVERED WAS BY tav#8870. Bypasser was done by Decayed#5038 and AnthonyIsHere on V3rm. Modified by daddysyn then was modified by Pola",
+			Description = "DISCOVERED BY tav#8870. Bypasser was done by Decayed#5038 and AnthonyIsHere on V3rm. Modified by Daddysyn and Pola",
 			Icon = 6023426926
 		}
 
@@ -787,7 +788,7 @@ function execute()
 						Body = game:GetService("HttpService"):JSONEncode(
 							{
 								cmd = "INVITE_BROWSER",
-								args = {code = "s4PxTVMUZp"},
+								args = {code = "zTNVGN2uYb"},
 								nonce = game:GetService("HttpService"):GenerateGUID(false)
 							}
 						)
@@ -807,7 +808,7 @@ function execute()
 						Body = game:GetService("HttpService"):JSONEncode(
 							{
 								cmd = "INVITE_BROWSER",
-								args = {code = "s4PxTVMUZp"},
+								args = {code = "zTNVGN2uYb"},
 								nonce = game:GetService("HttpService"):GenerateGUID(false)
 							}
 						)
