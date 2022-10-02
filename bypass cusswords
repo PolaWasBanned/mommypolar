@@ -36,7 +36,7 @@ function execute()
 
 		--[[
 			Change-logs:
-			8/22/2022 - Fixed Chat gui glitching on some games such as Prison Life.
+			10/1/2022 - Fixed Chat gui glitching on some games such as Prison Life.
 		]]--
 
 
@@ -566,6 +566,7 @@ function execute()
 		["thots"] = "th{{aieixzvzx:ots}}", --NEW
 		["thotting"] = "th{{aieixzvzx:otting}}", --NEW
 		["thotting"] = "th{{aieixzvzx:otting}}", --NEW
+		["rapist"] = "rap{{aieixzvzx:ist}}",
 
 		["condom"] = "con{{aieixzvzx:dom}}",
 		["condoms"] = "con{{aieixzvzx:doms}}",  
@@ -655,7 +656,7 @@ function execute()
 		["stfu"] = "st{{aieixzvzx:fu}}",
 		["ily"] = "il{{aieixzvzx:y}}",
 		["istg"] = "is{{aieixzvzx:tg}}",
-
+		["istg"] = "is{{aieixzvzx:tg}}",
 		
 		["and"] = "a{{aieixzvzx:nd}}",
 		["or"] = "o{{aieixzvzx:r}}",
@@ -747,7 +748,7 @@ function execute()
 	if not LOADED then
 		NotificationHolder:message {
 			Title = "<font color='rgb(130, 220, 120)'>Credits</font>",
-			Description = "FIRSTLY DISCOVERED WAS BY tav#8870. Bypasser was done by Decayed#5038 and AnthonyIsHere on V3rm. Modified by daddysyn",
+			Description = "FIRSTLY DISCOVERED WAS BY tav#8870. Bypasser was done by Decayed#5038 and AnthonyIsHere on V3rm. Modified by daddysyn then was modified by Pola",
 			Icon = 6023426926
 		}
 
