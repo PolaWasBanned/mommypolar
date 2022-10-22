@@ -16,8 +16,6 @@ local killauraToggle = combatTab.new("Switch", {text="kill aura"})
 local autohealToggle = combatTab.new("Switch", {text="auto heal"})
 local autohealSlider = combatTab.new("Slider", {text="auto heal health", min=1, max=99, value=30})
 local breakauraToggle = mainTab.new("Switch", {text="mine aura"})
-local Pesp = mainTab.new("Button", {text=" Pumpkin Esp "})
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/pumpkin%20esp"))()
 local pickupToggle = mainTab.new("Switch", {text="auto pickup"})
 local autofarmToggle = autofarmTab.new("Switch", {text="everything autofarm"})
 local autoPlant = autofarmTab.new("Switch", {text="auto plant fruit"})
@@ -32,6 +30,7 @@ local fruits = {
     "Pumpkin",
     "Banana"
 }
+
 
 local autoplantDropdown = autofarmTab.new("Dropdown", {text="fruits"})
 local plantButton = autofarmTab.new("Button", {text=" plant 5 boxes "})
@@ -51,7 +50,10 @@ autoplantDropdown.event:Connect(function(v)
     chosenFruit = v
 end)
 
-
+local Pesp = mainTab.new("Button", {text=" Pumpkin Esp "})
+Pesp.event:Connect(function()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/pumpkin%20esp"))()
+ end)
 -- took this from devforums
 local function getClosest()
     local hrp = Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position
@@ -189,3 +191,6 @@ while wait(0.2) do
         end
         end
 end
+
+ 
+
