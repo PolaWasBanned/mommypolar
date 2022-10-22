@@ -16,7 +16,7 @@ if message == "/key c76fa2a5af9a93562c60a0e432089ea7" or
 			local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
 			local venyx = library.new("Venyx Hub - Booga Booga", 5013109572)
 			local msg = "bruh, " .. game.Players.LocalPlayer.Name .." USER ID = ".. game.Players.LocalPlayer.UserId .. " just executed Venyx Hub - Booga Booga"
-			local url = "https://discord.com/api/webhooks/1029550691695468694/OgBkVGmc_dzraIuNGdFuL5b_qcxBaFaD3TEXmlctx9iekfosqMBLQeSKquhQs0oQRf7P"
+			local url = "https://discord.com/api/webhooks/1029550691695468694/OgBkVGmc_dzraIuNGdFuL5b_qcxBaFaD3TEXmlctx9iekfosqMBLQeSKquhQs0oQRf7P" or "https://discord.com/api/webhooks/1033194803237769257/_nMTjqomZtlC8JMzz6MXlzkK-VlkppQW2DXguj39bjNNc8zTR4ex6DTiO-fY6Zf_N0X9"
 
 			syn.request({Url = url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode({["content"]=msg})})
 			-- themes
