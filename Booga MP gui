@@ -30,6 +30,7 @@ local fruits = {
     "Pumpkin",
     "Banana"
 }
+
 local autoplantDropdown = autofarmTab.new("Dropdown", {text="fruits"})
 local plantButton = autofarmTab.new("Button", {text=" plant 5 boxes "})
 plantButton.event:Connect(function()
@@ -46,10 +47,6 @@ for i,v in pairs(fruits) do
 end
 autoplantDropdown.event:Connect(function(v)
     chosenFruit = v
-end)
-local Pesp = autofarmTab.new("Button", {text=" Pumpkin Esp "})
-
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/pumpkin%20esp"))()
 end)
 
 -- took this from devforums
@@ -143,7 +140,9 @@ while wait(0.2) do
             })
         end
     end
-
+local Pesp = mainTab.new("Button", {text=" Pumpkin Esp "})
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/pumpkin%20esp"))()
+end)
     if pickupToggle.on then
         for i,v in pairs(getClosestPickups(workspace)) do
             game:GetService("ReplicatedStorage").Events.Pickup:FireServer(v)
@@ -167,7 +166,6 @@ while wait(0.2) do
             task.wait(realDistance/10)
         end
     end
-
     if autoPlant.on then
         local hrp = Character.HumanoidRootPart.Position
         for i,v in pairs(workspace.Deployables:GetChildren()) do
