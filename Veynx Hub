@@ -1,3 +1,7 @@
+if game.PlaceId ~= 10758111998 then
+    game.Players.LocalPlayer:Kick("wrong game, join booga booga reborn for the script to work.")
+end
+
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(message)
 if message == "/key c76fa2a5af9a93562c60a0e432089ea7" or
     message == "/key ade22bc4ae0d90266bebbf1b65fc8372" or
