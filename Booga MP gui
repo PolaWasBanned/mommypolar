@@ -16,6 +16,8 @@ local killauraToggle = combatTab.new("Switch", {text="kill aura"})
 local autohealToggle = combatTab.new("Switch", {text="auto heal"})
 local autohealSlider = combatTab.new("Slider", {text="auto heal health", min=1, max=99, value=30})
 local breakauraToggle = mainTab.new("Switch", {text="mine aura"})
+local Pesp = mainTab.new("Button", {text=" Pumpkin Esp "})
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/pumpkin%20esp"))()
 local pickupToggle = mainTab.new("Switch", {text="auto pickup"})
 local autofarmToggle = autofarmTab.new("Switch", {text="everything autofarm"})
 local autoPlant = autofarmTab.new("Switch", {text="auto plant fruit"})
@@ -48,6 +50,7 @@ end
 autoplantDropdown.event:Connect(function(v)
     chosenFruit = v
 end)
+
 
 -- took this from devforums
 local function getClosest()
@@ -140,9 +143,7 @@ while wait(0.2) do
             })
         end
     end
-local Pesp = mainTab.new("Button", {text=" Pumpkin Esp "})
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/pumpkin%20esp"))()
-end)
+
     if pickupToggle.on then
         for i,v in pairs(getClosestPickups(workspace)) do
             game:GetService("ReplicatedStorage").Events.Pickup:FireServer(v)
