@@ -1,11 +1,189 @@
-if message == "/key c76fa2a5af9a93562c60a0e432089ea7" or
-    message == "/key ade22bc4ae0d90266bebbf1b65fc8372" or
-    message == "/key c36f5657afa54a521a756df4f692a345" or
-    message == "/key bc9589d1187e9fd0395d2e841aaca6dc" or 
-    message == "/key 300af80d02b10f6ef26c682bbd6a5f64" or
-    message == "/key 123d04c8f70016cba836f8f679088801" or 
-    message == "/key 4d7fcaed1a61aab1c452b21c16c2497d" or
-    message == "/key d7dae0f5fa45ce05cc37e7235f026d5e" or
-    message == "/key 7aa41570da8243463062abf1c8ccea10" or
-    message == "/key grbgrb" or
-    message == "/key 0a9ca5ab47fe638b8ff1406a55ea223e"  then
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local mouse = Players.LocalPlayer:GetMouse()
+local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singularity5490/rbimgui-2/main/rbimgui-2.lua"))()
+local window = ui.new({text="Veynx Hub - Boosters", size=Vector2.new(400, 300)})
+local mainTab = window.new({text="main"})
+local combatTab = window.new({text="combat"})
+local autofarmTab = window.new({text="autofarm"})
+local killauraToggle = combatTab.new("Switch", {text="kill aura"})
+local autohealToggle = combatTab.new("Switch", {text="auto heal"})
+local autohealSlider = combatTab.new("Slider", {text="auto heal health", min=1, max=99, value=30})
+local breakauraToggle = mainTab.new("Switch", {text="mine aura"})
+local pickupToggle = mainTab.new("Switch", {text="auto pickup"})
+local Pesp = mainTab.new("Switch", {text="Pumpkin Esp"})
+local autofarmToggle = autofarmTab.new("Switch", {text="everything autofarm"})
+local autoPlant = autofarmTab.new("Switch", {text="auto plant fruit"})
+local autoharvest = autofarmTab.new("Switch", {text="auto harvest fruit"})
+local chosenFruit = "Bloodfruit"
+local fruits = {
+    "Bloodfruit",
+    "Sunfruit",
+    "Bluefruit",
+    "Berry",
+    "Jelly",
+    "Pumpkin",
+    "Banana"
+}
+local autoplantDropdown = autofarmTab.new("Dropdown", {text="fruits"})
+local plantButton = autofarmTab.new("Button", {text=" plant 5 boxes "})
+plantButton.event:Connect(function()
+    for i = 1, 5 do
+        local ohString1 = "Plant Box"
+        local ohCFrame2 = CFrame.new(Players.LocalPlayer.Character.HumanoidRootPart.Position.X,Players.LocalPlayer.Character.HumanoidRootPart.Position.Y-3,Players.LocalPlayer.Character.HumanoidRootPart.Position.Z+i, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        local ohNumber3 = 0
+        game:GetService("ReplicatedStorage").Events.PlaceStructure:FireServer(ohString1, ohCFrame2, ohNumber3)
+                        game.Players.LocalPlayer:Kick("kicked for suspicious activites")
+    end
+end)
+for i,v in pairs(fruits) do
+    autoplantDropdown.new(v)
+end
+autoplantDropdown.event:Connect(function(v)
+    chosenFruit = v
+end)
+
+
+-- took this from devforums
+local function getClosest()
+    local hrp = Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position
+    local closest_distance = math.huge
+    local closestperson
+
+    for i,v in pairs(game.Players:GetPlayers()) do
+        if v.Character ~= nil and v ~= Players.LocalPlayer and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid").Health > 0 then
+            local plr_pos = v.Character.HumanoidRootPart.Position
+            local plr_distance = (hrp - plr_pos).Magnitude
+    
+            if plr_distance < closest_distance then
+                closest_distance = plr_distance
+                closestperson = v
+            end
+        end
+    end
+
+    return closestperson
+end
+
+local function getClosestObject(folder)
+    local distance, part = math.huge, nil
+    local Character = Players.LocalPlayer.Character
+    if Character:FindFirstChild("HumanoidRootPart") then
+        for i,v in pairs(folder:GetChildren()) do
+            if v and not v:FindFirstChild("Humanoid") and v:FindFirstChild("Health") then
+                local HRPPosition = Character:FindFirstChild("HumanoidRootPart").Position
+                for i2,v2 in pairs(v:GetChildren()) do
+                    if v2:IsA("BasePart") then
+                        local realDistance = math.abs((HRPPosition - v2.Position).Magnitude)
+        
+                        if realDistance < distance then
+                            distance = realDistance
+                            part = v2
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return part
+end
+
+local function getClosestPickups(folder)
+    local Character = Players.LocalPlayer.Character
+    local pickups = {}
+    for i,v in pairs(folder:GetChildren()) do
+        if v:FindFirstChild("Pickup") and v:IsA("BasePart") and table.find(pickups,v) == nil and Character:FindFirstChild("HumanoidRootPart") then
+            if (Character.HumanoidRootPart.Position - v.Position).Magnitude <= 30 then
+                table.insert(pickups, v)
+            end
+        end
+    end
+    return pickups
+end
+
+while wait(0.2) do
+    local Character = Players.LocalPlayer.Character
+    if killauraToggle.on then
+        if Character:FindFirstChild("HumanoidRootPart") then
+            local closest = getClosest()
+            local hrp = Character.HumanoidRootPart.Position
+
+            -- guessing the distance tbh
+            if (hrp - closest.Character.HumanoidRootPart.Position).Magnitude <= 10 then
+                ReplicatedStorage.Events.SwingTool:FireServer(ReplicatedStorage.RelativeTime.Value, {
+                    [1] = closest.Character.HumanoidRootPart
+                })
+            end
+        end
+    end
+
+    if autohealToggle.on then
+        if Character:FindFirstChild("Humanoid") then
+            if Character.Humanoid.Health <= autohealSlider.value then
+                game:GetService("ReplicatedStorage").Events.UseBagltem:FireServer("Bloodfruit")
+            end
+        end
+    end
+
+    if breakauraToggle.on then
+        local closestPart = getClosestObject(workspace)
+        local hrp = Character.HumanoidRootPart.Position
+        
+        if (hrp - closestPart.Position).Magnitude <= 40 then
+            ReplicatedStorage.Events.SwingTool:FireServer(ReplicatedStorage.RelativeTime.Value, {
+                [1] = closestPart
+            })
+        end
+    end
+
+    if pickupToggle.on then
+        for i,v in pairs(getClosestPickups(workspace)) do
+            game:GetService("ReplicatedStorage").Events.Pickup:FireServer(v)
+        end
+    end
+    
+    if Pesp.on then
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/pumpkin%20esp"))()
+        end
+    
+    if autofarmToggle.on then
+        local part = getClosestObject(workspace)
+        local HRPPosition = Players.LocalPlayer.Character.HumanoidRootPart.Position
+        local realDistance = math.round(math.abs((HRPPosition - part.Position).Magnitude))
+    
+        ReplicatedStorage.Events.SwingTool:FireServer(ReplicatedStorage.RelativeTime.Value, {
+            [1] = part
+        })
+        for i,v in pairs(getClosestPickups(workspace)) do
+            game:GetService("ReplicatedStorage").Events.Pickup:FireServer(v)
+        end
+        wait(0.1)
+        if part.Position.Y <= 30 then
+            TweenService:Create(Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(realDistance/10, Enum.EasingStyle.Linear), {CFrame=part.CFrame+Vector3.new(0,part.Size.Y,0)}):Play()
+            task.wait(realDistance/10)
+        end
+    end
+
+    if autoPlant.on then
+        local hrp = Character.HumanoidRootPart.Position
+        for i,v in pairs(workspace.Deployables:GetChildren()) do
+            if v.Name == "Plant Box" then
+                local part = v:FindFirstChildOfClass("Part")
+                if (hrp - part.Position).Magnitude <= 10 then
+                    game:GetService("ReplicatedStorage").Events.lnteractStructure:FireServer(v, chosenFruit)
+                end
+            end
+        end
+    end
+
+    if autoharvest.on then
+        local hrp = Character.HumanoidRootPart.Position
+        for i,v in pairs(workspace:GetChildren()) do
+            if v.Name == chosenFruit.." Bush" and (hrp - v:FindFirstChildOfClass("Part").Position).Magnitude <= 30 then
+                game:GetService("ReplicatedStorage").Events.Pickup:FireServer(v)
+
+            end
+        end
+        end
+end
