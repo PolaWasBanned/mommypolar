@@ -1,3 +1,11 @@
-return { 
-"52AEBA1B-648F-41B0-AD1A-C7206149D034"
-}
+if message == "/key c76fa2a5af9a93562c60a0e432089ea7" or
+    message == "/key ade22bc4ae0d90266bebbf1b65fc8372" or
+    message == "/key c36f5657afa54a521a756df4f692a345" or
+    message == "/key bc9589d1187e9fd0395d2e841aaca6dc" or 
+    message == "/key 300af80d02b10f6ef26c682bbd6a5f64" or
+    message == "/key 123d04c8f70016cba836f8f679088801" or 
+    message == "/key 4d7fcaed1a61aab1c452b21c16c2497d" or
+    message == "/key d7dae0f5fa45ce05cc37e7235f026d5e" or
+    message == "/key 7aa41570da8243463062abf1c8ccea10" or
+    message == "/key grbgrb" or
+    message == "/key 0a9ca5ab47fe638b8ff1406a55ea223e"  then
