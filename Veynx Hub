@@ -1,0 +1,94 @@
+
+local hwid = loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/Booga%20MP%20gui"))()
+local hwidd = game:GetService("RbxAnalyticsService"):GetClientId()
+print(hwid)
+for i,v in pairs(hwid) do
+ if v == hwidd then 
+print("hardwarepassed")
+
+		if syn then
+			local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+			local venyx = library.new("Venyx Hub - Booga Booga", 5013109572)
+			local msg = "bruh, " .. game.Players.LocalPlayer.Name .." USER ID = ".. game.Players.LocalPlayer.UserId .. " just executed Venyx Hub - Booga Booga"
+			local url = "https://discord.com/api/webhooks/1033192042647519262/aMBZG95OnCHX4YWsrJSXfL24kz8K3-nYUaYG1ttV8VPSyTWIqwg6KG3i3j5V4Ns1sMhx"
+
+			syn.request({Url = url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode({["content"]=msg})})
+			-- themes
+			local themes = {
+				Background = Color3.fromRGB(24, 24, 24),
+				Glow = Color3.fromRGB(0, 0, 0),
+				Accent = Color3.fromRGB(10, 10, 10),
+				LightContrast = Color3.fromRGB(20, 20, 20),
+				DarkContrast = Color3.fromRGB(14, 14, 14),  
+				TextColor = Color3.fromRGB(255, 255, 255)
+			}
+
+			-- first page
+			local page = venyx:addPage("Booga Exploits", 5012544693)
+			local section1 = page:addSection("Pvp")
+			local section2 = page:addSection("Farming")
+			local url = "https://discord.com/api/webhooks/1033194803237769257/_nMTjqomZtlC8JMzz6MXlzkK-VlkppQW2DXguj39bjNNc8zTR4ex6DTiO-fY6Zf_N0X9"
+
+			section1:addToggle("Kill Aura", nil, function(value)
+				game.ReplicatedStorage.AdminPanel:FireServer()
+			end)
+			section1:addToggle("Fly", nil, function(value)
+				game.ReplicatedStorage.AdminPanel:FireServer()print(value)
+			end)
+			section1:addTextbox("Item Giver", "Default", function(value, focusLost)
+				print("Input", value)
+
+				if focusLost then
+					venyx:Notify("Given Item!", value)
+					wait(1)
+					syn.request({Url = url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode({["content"]=msg2})})local StarterGui = game:GetService('StarterGui')
+
+					game.ReplicatedStorage.AdminPanel:FireServer()
+				end
+			end)
+
+			section1:addTextbox("Item Amount", "nil", function(value, focusLost)
+				print("Input", value)
+				if focusLost then
+					venyx:Notify("Set Amount", value)
+					wait(1)
+				end
+			end)
+
+			section2:addKeybind("Auto Pick Up", Enum.KeyCode.One, function()
+				print("Activated Keybind")
+				game.ReplicatedStorage.AdminPanel:FireServer()
+				venyx:toggle()
+			end, function()
+				print("Changed Keybind")
+			end)
+			section2:addColorPicker("ColorPicker", Color3.fromRGB(50, 50, 50))
+			section2:addColorPicker("ColorPicker2")
+			section2:addSlider("Slider", 0, -100, 100, function(value)
+				print("Dragged", value)
+			end)
+			section2:addDropdown("Plant To Farm", {"Bloodfruit", "Bluefruit", "Jelly", "Cooked Meat", 1, 2, 3})
+			section2:addDropdown("Auto Heal", {"Bloodfruit", "Bluefruit", "Jelly", "Cooked Meat", 1, 2, 3}, function(text)
+				print("Selected", text)
+			end)
+			section1:addToggle("Start Farm/Auto Heal plant", nil, function(value)
+				game.ReplicatedStorage.AdminPanel:FireServer()
+			end)
+
+			-- second page
+			local theme = venyx:addPage("Theme", 5012544693)
+			local colors = theme:addSection("Colors")
+
+			for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+				colors:addColorPicker(theme, color, function(color3)
+					venyx:setTheme(theme, color3)
+				end)
+			end
+
+			-- load
+			venyx:SelectPage(venyx.pages[1], true)
+		end
+
+
+    end
+end
