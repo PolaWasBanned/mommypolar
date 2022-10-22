@@ -1,12 +1,9 @@
-
 local hwid = loadstring(game:HttpGet("https://raw.githubusercontent.com/PolaWasBanned/mommypolar/main/Booga%20MP%20gui"))()
 local hwidd = game:GetService("RbxAnalyticsService"):GetClientId()
 print(hwid)
 for i,v in pairs(hwid) do
  if v == hwidd then 
 print("hardwarepassed")
-
-		if syn then
 			local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
 			local venyx = library.new("Venyx Hub - Booga Booga", 5013109572)
 			local msg = "bruh, " .. game.Players.LocalPlayer.Name .." USER ID = ".. game.Players.LocalPlayer.UserId .. " just executed Venyx Hub - Booga Booga"
@@ -88,7 +85,4 @@ print("hardwarepassed")
 			-- load
 			venyx:SelectPage(venyx.pages[1], true)
 		end
-
-
-    end
 end
