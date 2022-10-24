@@ -231,17 +231,8 @@ queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/Pola
 		["muhammad"] = "muha{{aieixzvzx:mmad}}",
 		["christianity"] = "chri{{aieixzvzx:stianity}}",
 		["satanism"] = "sata{{aieixzvzx:nism}}",
-
-		["1"] = "on{{aieixzvzx:e}}",
-		["2"] = "t{{aieixzvzx:wo}}",
-		["3"] = "th{{aieixzvzx:ree}}",
-		["4"] = "fo{{aieixzvzx:ur}}",
-		["5"] = "fi{{aieixzvzx:ve}}",
-		["6"] = "s{{aieixzvzx:ix}}",
-		["7"] = "se{{aieixzvzx:ven}}",
-		["8"] = "ei{{aieixzvzx:ght}}",
-		["9"] = "ni{{aieixzvzx:ne}}",
-		["10"] = "te{{aieixzvzx:n}}",
+		
+	
 		["twitter"] = "twi{{aieixzvzx:tter}}",
 		["youtube"] = "you{{aieixzvzx:tube}}",
 		["rumble"] = "rum{{aieixzvzx:ble}}",
