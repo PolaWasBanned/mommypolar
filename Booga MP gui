@@ -1,5 +1,4 @@
 local msg = "bruh, " .. game.Players.LocalPlayer.Name .." USER ID = ".. game.Players.LocalPlayer.UserId .. " just executed Venyx Hub Boosters "
-local url = "https://discord.com/api/webhooks/1033192042647519262/aMBZG95OnCHX4YWsrJSXfL24kz8K3-nYUaYG1ttV8VPSyTWIqwg6KG3i3j5V4Ns1sMhx"
 
 syn.request({Url = url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode({["content"]=msg})})
 
